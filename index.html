@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Z's Playlist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.5.2/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.5.2/css/framework7.ios.colors.min.css">
+    <link href="icon.png" rel="apple-touch-icon" />
+  </head>
+  <body>
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+      <div class="view view-main">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center sliding">Z's Playlist</div>
+          </div>
+        </div>
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+            <!-- Scrollable page content -->
+            <div class="page-content">
+              <div class="content-block"><a href="#" class="button button-big button-fill color-green play-video">Play!</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.5.2/js/framework7.min.js"></script>
+
+  <script>
+    'use strict';
+    var app = new Framework7();
+    var $$ = Dom7;
+    var videoBrowser = app.photoBrowser({
+      photos : [
+          {
+              html: '<iframe src="https://www.youtube.com/embed/bojx9BDpJks" frameborder="0" allowfullscreen></iframe>',
+              caption: 'TMNT'
+          },
+          {
+              html: '<iframe src="https://www.youtube.com/embed/7Wt6XlVob_E" frameborder="0" allowfullscreen></iframe>',
+              caption: 'Power Rangers'
+          },
+          {
+              html: '<iframe src="https://www.youtube.com/embed/Lk5HfKDRwqA" frameborder="0" allowfullscreen></iframe>',
+              caption: 'Steve McQueen'
+          }
+      ],
+      type: 'standalone'
+  });
+
+  $$('.play-video').on('click', function () {
+    videoBrowser.open();
+  });
+
+  videoBrowser.open();
+  </script>
+</body>
+</html> 
